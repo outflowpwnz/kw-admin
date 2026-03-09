@@ -56,7 +56,7 @@ apiClient.interceptors.response.use(
       processQueue(refreshError as AxiosError)
       // Токен протух — отправляем на логин
       if (typeof window !== 'undefined') {
-        window.location.href = '/login'
+        window.location.href = '/admin/login'
       }
       return Promise.reject(refreshError)
     } finally {

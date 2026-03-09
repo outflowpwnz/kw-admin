@@ -8,6 +8,7 @@ export interface LoginPayload {
 export interface MeResponse {
   id: string
   login: string
+  name: string
   role: string
 }
 
