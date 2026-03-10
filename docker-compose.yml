@@ -12,6 +12,8 @@ services:
         NEXT_PUBLIC_API_URL: http://${VPS_IP}/api/v1
     container_name: karpenko_admin
     restart: unless-stopped
+    ports:
+      - "3001:3001"
     networks:
       - karpenko_net
     healthcheck:
