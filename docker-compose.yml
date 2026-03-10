@@ -1,0 +1,22 @@
+networks:
+  karpenko_net:
+    external: true
+
+services:
+
+  admin:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://${VPS_IP}/api/v1
+    container_name: karpenko_admin
+    restart: unless-stopped
+    networks:
+      - karpenko_net
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3001/admin || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
