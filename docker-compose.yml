@@ -9,7 +9,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        NEXT_PUBLIC_API_URL: http://${VPS_IP}/api/v1
+        NEXT_PUBLIC_API_URL: http://${VPS_IP}:8080/api/v1
     container_name: karpenko_admin
     restart: unless-stopped
     ports:
