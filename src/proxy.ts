@@ -13,11 +13,11 @@ export function proxy(request: NextRequest) {
   const hasToken = request.cookies.has('access_token')
 
   if (!isPublic && !hasToken) {
-    return NextResponse.redirect(new URL('/login', request.url))
+    return NextResponse.redirect(new URL('admin/login', request.url))
   }
 
   if (isPublic && hasToken) {
-    return NextResponse.redirect(new URL('/', request.url))
+    return NextResponse.redirect(new URL('admin/', request.url))
   }
 
   return NextResponse.next()
